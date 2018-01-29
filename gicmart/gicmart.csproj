@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -116,15 +117,73 @@
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\WebMatrix.WebData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\changepasswordController.cs" />
+    <Compile Include="Areas\Admin\Controllers\dashboardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DefaultController.cs" />
+    <Compile Include="Areas\Admin\Controllers\levelreportController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LogoutController.cs" />
+    <Compile Include="Areas\Admin\Controllers\myrepurchageController.cs" />
+    <Compile Include="Areas\Admin\Controllers\mysponsorController.cs" />
+    <Compile Include="Areas\Admin\Controllers\pinController.cs" />
+    <Compile Include="Areas\Admin\Controllers\pindetailsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\profileController.cs" />
+    <Compile Include="Areas\Admin\Controllers\rewardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SearchByIdController.cs" />
+    <Compile Include="Areas\Admin\Controllers\sponsorlevelController.cs" />
+    <Compile Include="Areas\Admin\Controllers\welletterController.cs" />
+    <Compile Include="Areas\Admin\Filters\SessionExpireAttribute.cs" />
+    <Compile Include="Areas\Admin\Models\changepw.cs" />
+    <Compile Include="Areas\Admin\Models\profile.cs" />
+    <Compile Include="Areas\User\Controllers\LogoutController.cs" />
+    <Compile Include="Areas\User\Controllers\pinController.cs" />
+    <Compile Include="Areas\User\Controllers\userchangepasswordController.cs" />
+    <Compile Include="Areas\User\Controllers\userdashboardController.cs" />
+    <Compile Include="Areas\User\Controllers\userlevelreportController.cs" />
+    <Compile Include="Areas\User\Controllers\usermyrepurchageController.cs" />
+    <Compile Include="Areas\User\Controllers\usermysponsorController.cs" />
+    <Compile Include="Areas\User\Controllers\userprofileController.cs" />
+    <Compile Include="Areas\User\Controllers\userrewardController.cs" />
+    <Compile Include="Areas\User\Controllers\usersponsorlevelController.cs" />
+    <Compile Include="Areas\User\Controllers\userwelcomeletterController.cs" />
+    <Compile Include="Areas\User\Filters\SessionExpireAttribute.cs" />
+    <Compile Include="Areas\User\Models\changePassword.cs" />
+    <Compile Include="Areas\User\Models\userprofile.cs" />
+    <Compile Include="Areas\User\UserAreaRegistration.cs" />
+    <Compile Include="Controllers\businessplanController.cs" />
+    <Compile Include="Controllers\changepasswordController.cs" />
+    <Compile Include="Controllers\contactusController.cs" />
+    <Compile Include="Controllers\galleryController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\loginController.cs" />
+    <Compile Include="Controllers\myhomeController.cs" />
+    <Compile Include="Controllers\productgalleryController.cs" />
+    <Compile Include="Controllers\registrationController.cs" />
+    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\contactus.cs" />
+    <Compile Include="Models\login.cs" />
+    <Compile Include="Models\users.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -182,9 +241,144 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\gicmart.csprojResolveAssemblyReference.cache" />
+    <Content Include="Areas\Admin\Views\changepassword\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\dashboard\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Default\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\levelreport\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\myrepurchage\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\mysponsor\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\pindetails\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\pin\newPin.cshtml" />
+    <Content Include="Areas\Admin\Views\pin\unUsedPin.cshtml" />
+    <Content Include="Areas\Admin\Views\pin\usedPin.cshtml" />
+    <Content Include="Areas\Admin\Views\profile\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\reward\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\SearchById\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_master.cshtml" />
+    <Content Include="Areas\Admin\Views\sponsorlevel\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\welletter\Index.cshtml" />
+    <Content Include="Areas\User\Views\pin\newPin.cshtml" />
+    <Content Include="Areas\User\Views\pin\unUsedPin.cshtml" />
+    <Content Include="Areas\User\Views\pin\usedPin.cshtml" />
+    <Content Include="Areas\User\Views\Shared\_master.cshtml" />
+    <Content Include="Areas\User\Views\userchangepassword\Index.cshtml" />
+    <Content Include="Areas\User\Views\userdashboard\Index.cshtml" />
+    <Content Include="Areas\User\Views\userlevelreport\Index.cshtml" />
+    <Content Include="Areas\User\Views\usermyrepurchage\Index.cshtml" />
+    <Content Include="Areas\User\Views\usermysponsor\Index.cshtml" />
+    <Content Include="Areas\User\Views\userprofile\Index.cshtml" />
+    <Content Include="Areas\User\Views\userreward\Index.cshtml" />
+    <Content Include="Areas\User\Views\usersponsorlevel\Index.cshtml" />
+    <Content Include="Areas\User\Views\userwelcomeletter\Index.cshtml" />
+    <Content Include="Areas\User\Views\web.config" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Images\2.jpg" />
+    <Content Include="Images\3.jpg" />
+    <Content Include="Images\5.jpg" />
+    <Content Include="Images\5.png" />
+    <Content Include="Images\6.png" />
+    <Content Include="Images\8.jpg" />
+    <Content Include="Images\a2.png" />
+    <Content Include="Images\a3.png" />
+    <Content Include="Images\a4.png" />
+    <Content Include="Images\a5.png" />
+    <Content Include="Images\a6.png" />
+    <Content Include="Images\b1.png" />
+    <Content Include="Images\b2.png" />
+    <Content Include="Images\b3.png" />
+    <Content Include="Images\b4.png" />
+    <Content Include="Images\bg.png" />
+    <Content Include="Images\bg1.jpg" />
+    <Content Include="Images\bg2.jpg" />
+    <Content Include="Images\e1.png" />
+    <Content Include="Images\e2.png" />
+    <Content Include="Images\e3.png" />
+    <Content Include="Images\e4.png" />
+    <Content Include="Images\f1.png" />
+    <Content Include="Images\f2.png" />
+    <Content Include="Images\f3.png" />
+    <Content Include="Images\f4.png" />
+    <Content Include="Images\f5.png" />
+    <Content Include="Images\f6.png" />
+    <Content Include="Images\f7.png" />
+    <Content Include="Images\f8.png" />
+    <Content Include="Images\f9.png" />
+    <Content Include="Images\freedom.jpg" />
+    <Content Include="Images\g1.png" />
+    <Content Include="Images\g2.png" />
+    <Content Include="Images\g3.png" />
+    <Content Include="Images\g4.png" />
+    <Content Include="Images\g5.png" />
+    <Content Include="Images\g6.png" />
+    <Content Include="Images\h1.png" />
+    <Content Include="Images\h2.png" />
+    <Content Include="Images\h3.png" />
+    <Content Include="Images\h4.png" />
+    <Content Include="Images\h5.png" />
+    <Content Include="Images\images.jpg" />
+    <Content Include="Images\img1.jpg" />
+    <Content Include="Images\img2.jpg" />
+    <Content Include="Images\img3.jpg" />
+    <Content Include="Images\ivoltaa-dual-usb.jpeg" />
+    <Content Include="Images\m1.png" />
+    <Content Include="Images\m2.png" />
+    <Content Include="Images\m3.png" />
+    <Content Include="Images\m4.png" />
+    <Content Include="Images\move-up.png" />
+    <Content Include="Images\nucleo-icon-1.html" />
+    <Content Include="Images\nucleo-icon-10.html" />
+    <Content Include="Images\nucleo-icon-11.html" />
+    <Content Include="Images\nucleo-icon-12.html" />
+    <Content Include="Images\nucleo-icon-2.html" />
+    <Content Include="Images\nucleo-icon-3.html" />
+    <Content Include="Images\nucleo-icon-4.html" />
+    <Content Include="Images\nucleo-icon-5.html" />
+    <Content Include="Images\nucleo-icon-6.html" />
+    <Content Include="Images\nucleo-icon-7.html" />
+    <Content Include="Images\nucleo-icon-8.html" />
+    <Content Include="Images\nucleo-icon-9.html" />
+    <Content Include="Images\plan.jpg" />
+    <Content Include="Images\team_member2.png" />
+    <Content Include="Images\wealth.jpg" />
+    <Content Include="obj\Debug\gicmart.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\gicmart.dll" />
+    <Content Include="obj\Debug\gicmart.pdb" />
+    <Content Include="product imgs\1250-1.png" />
+    <Content Include="product imgs\1250-hair.png" />
+    <Content Include="product imgs\1250.png" />
+    <Content Include="product imgs\1350-1.png" />
+    <Content Include="product imgs\1350.png" />
+    <Content Include="product imgs\1500-1.png" />
+    <Content Include="product imgs\1500-2.png" />
+    <Content Include="product imgs\1500.png" />
+    <Content Include="product imgs\1600.png" />
+    <Content Include="product imgs\1700.png" />
+    <Content Include="product imgs\1750.png" />
+    <Content Include="product imgs\1850-3.png" />
+    <Content Include="product imgs\1850-4.png" />
+    <Content Include="product imgs\1850-5.png" />
+    <Content Include="product imgs\1850-6.png" />
+    <Content Include="product imgs\1850.png" />
+    <Content Include="product imgs\Minilesser.png" />
+    <Content Include="product imgs\Nova Hair Strenner.png" />
+    <Content Include="product imgs\oppo powerbank.png" />
+    <Content Include="product imgs\Samsung Powerbank.png" />
+    <Content Include="product imgs\vivo powerbank.png" />
+    <Content Include="product imgs\watch-1.png" />
+    <Content Include="product imgs\watch-2.png" />
+    <Content Include="product imgs\watch-3.png" />
+    <Content Include="product imgs\watch-4.png" />
+    <Content Include="product imgs\watch-5.png" />
+    <Content Include="product imgs\watch.png" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -211,11 +405,30 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveExternalLoginsPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\businessplan\mybusinessplan.cshtml" />
+    <Content Include="Views\contactus\contactus.cshtml" />
+    <Content Include="Views\gallery\gallery.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\home.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\login\Index.cshtml" />
+    <Content Include="Views\login\login.cshtml" />
+    <Content Include="Views\productgallery\Index.cshtml" />
+    <Content Include="Views\registration\register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

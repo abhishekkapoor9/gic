@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/User/Views/Shared/_master.cshtml";
+}
+
+
+<!--page title end-->
+<br />
+<section class="content">
+    <div class="row mar_gin" style="width:100%">
+        <div class="col-md-12" style="width:100%">
+            <h4><b>My Sponsor List</b></h4>
+            <div class="s1 table-responsive">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th>Member ID</th>
+                            <th>Sponsor ID</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Mobile</th>
+                        </tr>
+                        @if (ViewBag.clientlist != null)
+                        {
+                            foreach (var stud in @ViewBag.clientlist)
+                            {
+                                <tr>
+                                    <td>
+                                        @stud.userid
+                                    </td>
+                                    <td>
+                                        @stud.sponsorid
+                                    </td>
+                                    <td>
+                                        @stud.name
+                                    </td>
+                                    <td>
+                                        @stud.address
+                                    </td>
+                                    <td>
+                                        @stud.mobileno
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+
